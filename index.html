@@ -6,25 +6,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>GATE CBT Test Platform</title>
+<title>GATE CBT Platform</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles.css">
 
 </head>
 
 <body>
 
-<header class="topbar">
+<header class="header">
 
-<div class="logo">
-GATE CBT MOCK
+<div class="brand">
+
+<h1>GATE CBT</h1>
+
 </div>
 
-<div class="exam-info">
+<div class="exam-tools">
 
 <div id="timer">03:00:00</div>
 
-<button class="calc-btn" onclick="openCalculator()">
+<button class="tool-btn" onclick="openCalculator()">
 Calculator
 </button>
 
@@ -33,76 +35,89 @@ Calculator
 </header>
 
 
-<div class="layout">
+<div class="container">
 
-<main class="question-area">
+<main class="question-panel">
 
-<div class="question-header">
+<div class="question-meta">
 
-<h2 id="q-number"></h2>
+<span id="question-number"></span>
 
 </div>
 
-<div class="question-body">
+<div class="question-content">
 
 <p id="question-text"></p>
 
-<div class="options">
+<form id="options">
 
 <label class="option">
-<input type="radio" name="option" value="A">
+<input type="radio" name="answer" value="A">
 <span id="optA"></span>
 </label>
 
 <label class="option">
-<input type="radio" name="option" value="B">
+<input type="radio" name="answer" value="B">
 <span id="optB"></span>
 </label>
 
 <label class="option">
-<input type="radio" name="option" value="C">
+<input type="radio" name="answer" value="C">
 <span id="optC"></span>
 </label>
 
 <label class="option">
-<input type="radio" name="option" value="D">
+<input type="radio" name="answer" value="D">
 <span id="optD"></span>
 </label>
 
-</div>
+</form>
 
 </div>
 
-<div class="actions">
+<div class="controls">
 
-<button onclick="previous()">Previous</button>
+<button onclick="prevQuestion()">Previous</button>
 
-<button onclick="markReview()">Mark for Review</button>
+<button onclick="markReview()">Mark Review</button>
 
-<button onclick="clearResponse()">Clear Response</button>
+<button onclick="clearAnswer()">Clear</button>
 
-<button class="next-btn" onclick="next()">Save & Next</button>
+<button class="primary" onclick="nextQuestion()">
+Save & Next
+</button>
 
 </div>
 
 </main>
 
 
-<aside class="palette">
+<aside class="palette-panel">
 
 <h3>Question Palette</h3>
 
-<div id="palette-grid"></div>
+<div id="palette"></div>
 
 <div class="legend">
 
-<p><span class="box answered"></span> Answered</p>
-<p><span class="box notanswered"></span> Not Answered</p>
-<p><span class="box review"></span> Review</p>
+<div>
+<span class="box answered"></span>
+Answered
+</div>
+
+<div>
+<span class="box notanswered"></span>
+Not Answered
+</div>
+
+<div>
+<span class="box review"></span>
+Review
+</div>
 
 </div>
 
-<button class="submit-btn">Submit Test</button>
+<button class="submit">Submit Test</button>
 
 </aside>
 
