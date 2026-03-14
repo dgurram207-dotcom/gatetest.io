@@ -1,63 +1,106 @@
-body{
-margin:0;
-font-family:Segoe UI, Arial;
-background:#f4f6fb;
+*{
+box-sizing:border-box;
 }
 
-.topbar{
+body{
+
+margin:0;
+
+font-family:Inter,Segoe UI,Arial;
+
+background:#f6f8fc;
+
+color:#1f2937;
+
+}
+
+.header{
 
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
+
+padding:14px 30px;
 
 background:#1b3c8c;
+
 color:white;
 
-padding:12px 30px;
 }
 
-.logo{
+.brand h1{
+
 font-size:18px;
-font-weight:bold;
+
+margin:0;
+
 }
 
-.exam-info{
+.exam-tools{
+
 display:flex;
+
 gap:20px;
+
 align-items:center;
+
 }
 
-.calc-btn{
+.tool-btn{
+
 background:white;
+
 border:none;
+
 padding:8px 14px;
+
 cursor:pointer;
+
+border-radius:4px;
+
 }
 
-.layout{
+.container{
 
 display:flex;
+
 height:92vh;
+
 }
 
-.question-area{
+.question-panel{
 
 flex:3;
-padding:30px;
+
 background:white;
+
+padding:30px;
+
+display:flex;
+
+flex-direction:column;
+
 }
 
-.question-body{
+.question-content{
 
 margin-top:20px;
+
 }
 
 .option{
 
-display:block;
+display:flex;
 
-border:1px solid #ddd;
+gap:10px;
+
 padding:12px;
+
+border:1px solid #e5e7eb;
+
+border-radius:6px;
 
 margin-bottom:10px;
 
@@ -65,31 +108,55 @@ cursor:pointer;
 
 }
 
-.actions{
+.option:hover{
 
-margin-top:20px;
+background:#f9fafb;
+
 }
 
-.actions button{
+.controls{
 
-padding:10px 15px;
-margin-right:10px;
+margin-top:auto;
+
+display:flex;
+
+gap:10px;
+
 }
 
-.next-btn{
-background:#1b3c8c;
-color:white;
+.controls button{
+
+padding:10px 14px;
+
 border:none;
+
+background:#e5e7eb;
+
+cursor:pointer;
+
+border-radius:4px;
+
 }
 
-.palette{
+.primary{
+
+background:#1b3c8c;
+
+color:white;
+
+}
+
+.palette-panel{
 
 flex:1;
-background:#eef0f5;
+
+background:#f1f4f9;
+
 padding:20px;
+
 }
 
-#palette-grid{
+#palette{
 
 display:grid;
 
@@ -101,48 +168,73 @@ margin-top:10px;
 
 }
 
-#palette-grid button{
+#palette button{
 
 height:38px;
+
 border:none;
 
-cursor:pointer;
+border-radius:4px;
 
-background:#ccc;
+background:#d1d5db;
+
+cursor:pointer;
 
 }
 
 .answered{
-background:green;
+
+background:#16a34a;
+
 }
 
 .notanswered{
-background:red;
+
+background:#dc2626;
+
 }
 
 .review{
-background:purple;
+
+background:#7c3aed;
+
 }
 
 .box{
 
 display:inline-block;
-width:15px;
-height:15px;
-margin-right:5px;
+
+width:14px;
+
+height:14px;
+
+margin-right:6px;
 
 }
 
-.submit-btn{
+.legend{
+
+margin-top:15px;
+
+font-size:14px;
+
+}
+
+.submit{
 
 margin-top:20px;
 
 width:100%;
+
 padding:12px;
 
 background:#1b3c8c;
+
 color:white;
+
 border:none;
+
+border-radius:6px;
 
 cursor:pointer;
 
