@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>GATE CBT Mock Test</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="top-bar">
+
+<div class="exam-title">
+GATE MOCK EXAM
+</div>
+
+<div class="timer">
+Time Left: <span id="time">03:00:00</span>
+</div>
+
+<button onclick="openCalculator()">Calculator</button>
+
+</div>
+
+
+<div class="main-container">
+
+<div class="question-section">
+
+<div class="question-header">
+
+<span id="qNumber">Question 1</span>
+
+</div>
+
+<div class="question-body">
+
+<p id="questionText"></p>
+
+<div class="options">
+
+<label>
+<input type="radio" name="option" value="A">
+<span id="optA"></span>
+</label>
+
+<label>
+<input type="radio" name="option" value="B">
+<span id="optB"></span>
+</label>
+
+<label>
+<input type="radio" name="option" value="C">
+<span id="optC"></span>
+</label>
+
+<label>
+<input type="radio" name="option" value="D">
+<span id="optD"></span>
+</label>
+
+</div>
+
+</div>
+
+<div class="question-buttons">
+
+<button onclick="prevQuestion()">Previous</button>
+
+<button onclick="markReview()">Mark for Review</button>
+
+<button onclick="clearResponse()">Clear</button>
+
+<button onclick="nextQuestion()">Save & Next</button>
+
+</div>
+
+</div>
+
+
+<div class="palette-section">
+
+<h3>Question Palette</h3>
+
+<div id="palette"></div>
+
+<div class="legend">
+
+<p><span class="answered"></span> Answered</p>
+<p><span class="notanswered"></span> Not Answered</p>
+<p><span class="review"></span> Review</p>
+
+</div>
+
+<button class="submit">Submit Test</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+[
+{
+"question":"What is unit of stress?",
+"A":"Pascal",
+"B":"Newton",
+"C":"Joule",
+"D":"Watt"
+},
+
+{
+"question":"Hooke's law relates to?",
+"A":"Stress and strain",
+"B":"Velocity and time",
+"C":"Force and momentum",
+"D":"Energy and power"
+}
+]
