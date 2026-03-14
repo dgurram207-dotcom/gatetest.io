@@ -120,3 +120,4 @@ function openCalculator(){
 window.open("calculator/calculator.html","calc","width=400,height=500");
 
 }
+
