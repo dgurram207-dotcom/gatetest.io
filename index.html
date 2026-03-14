@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-<title>GATE CBT Mock Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>GATE CBT Test Platform</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -12,53 +14,57 @@
 
 <body>
 
-<div class="top-bar">
+<header class="topbar">
 
-<div class="exam-title">
-GATE MOCK EXAM
+<div class="logo">
+GATE CBT MOCK
 </div>
 
-<div class="timer">
-Time Left: <span id="time">03:00:00</span>
+<div class="exam-info">
+
+<div id="timer">03:00:00</div>
+
+<button class="calc-btn" onclick="openCalculator()">
+Calculator
+</button>
+
 </div>
 
-<button onclick="openCalculator()">Calculator</button>
-
-</div>
+</header>
 
 
-<div class="main-container">
+<div class="layout">
 
-<div class="question-section">
+<main class="question-area">
 
 <div class="question-header">
 
-<span id="qNumber">Question 1</span>
+<h2 id="q-number"></h2>
 
 </div>
 
 <div class="question-body">
 
-<p id="questionText"></p>
+<p id="question-text"></p>
 
 <div class="options">
 
-<label>
+<label class="option">
 <input type="radio" name="option" value="A">
 <span id="optA"></span>
 </label>
 
-<label>
+<label class="option">
 <input type="radio" name="option" value="B">
 <span id="optB"></span>
 </label>
 
-<label>
+<label class="option">
 <input type="radio" name="option" value="C">
 <span id="optC"></span>
 </label>
 
-<label>
+<label class="option">
 <input type="radio" name="option" value="D">
 <span id="optD"></span>
 </label>
@@ -67,43 +73,42 @@ Time Left: <span id="time">03:00:00</span>
 
 </div>
 
-<div class="question-buttons">
+<div class="actions">
 
-<button onclick="prevQuestion()">Previous</button>
+<button onclick="previous()">Previous</button>
 
 <button onclick="markReview()">Mark for Review</button>
 
-<button onclick="clearResponse()">Clear</button>
+<button onclick="clearResponse()">Clear Response</button>
 
-<button onclick="nextQuestion()">Save & Next</button>
-
-</div>
+<button class="next-btn" onclick="next()">Save & Next</button>
 
 </div>
 
+</main>
 
-<div class="palette-section">
+
+<aside class="palette">
 
 <h3>Question Palette</h3>
 
-<div id="palette"></div>
+<div id="palette-grid"></div>
 
 <div class="legend">
 
-<p><span class="answered"></span> Answered</p>
-<p><span class="notanswered"></span> Not Answered</p>
-<p><span class="review"></span> Review</p>
+<p><span class="box answered"></span> Answered</p>
+<p><span class="box notanswered"></span> Not Answered</p>
+<p><span class="box review"></span> Review</p>
 
 </div>
 
-<button class="submit">Submit Test</button>
+<button class="submit-btn">Submit Test</button>
+
+</aside>
 
 </div>
 
-</div>
-
-<script src="script.js"></script>
+<script src="app.js"></script>
 
 </body>
-
 </html>
