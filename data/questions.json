@@ -1,0 +1,20 @@
+[
+{
+"question":"Unit of stress is?",
+"options":{
+"A":"Pascal",
+"B":"Newton",
+"C":"Joule",
+"D":"Watt"
+}
+},
+{
+"question":"Hooke's law relates?",
+"options":{
+"A":"Stress and Strain",
+"B":"Force and Time",
+"C":"Energy and Work",
+"D":"Pressure and Volume"
+}
+}
+]
