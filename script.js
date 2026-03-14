@@ -1,123 +1,136 @@
-let questions=[];
-let current=0;
+const state={
 
-let answers={};
-let review={};
-
-fetch("questions.json")
-.then(res=>res.json())
-.then(data=>{
-
-questions=data;
-
-loadQuestion();
-createPalette();
-
-});
-
-
-function loadQuestion(){
-
-let q=questions[current];
-
-document.getElementById("qNumber").innerText=
-"Question "+(current+1);
-
-document.getElementById("questionText").innerText=q.question;
-
-document.getElementById("optA").innerText=q.A;
-document.getElementById("optB").innerText=q.B;
-document.getElementById("optC").innerText=q.C;
-document.getElementById("optD").innerText=q.D;
+questions:[],
+current:0,
+answers:{}
 
 }
 
+async function init(){
+
+const res=await fetch("data/questions.json")
+
+state.questions=await res.json()
+
+renderQuestion()
+
+buildPalette()
+
+}
+
+function renderQuestion(){
+
+const q=state.questions[state.current]
+
+document.getElementById("question-number")
+.innerText=`Question ${state.current+1}`
+
+document.getElementById("question-text")
+.innerText=q.question
+
+const options=document.getElementById("options")
+
+options.innerHTML=""
+
+Object.entries(q.options).forEach(([key,val])=>{
+
+const label=document.createElement("label")
+
+label.className="option"
+
+label.innerHTML=`
+
+<input type="radio" name="ans" value="${key}">
+${val}
+
+`
+
+options.appendChild(label)
+
+})
+
+}
 
 function nextQuestion(){
 
-saveAnswer();
+saveAnswer()
 
-if(current<questions.length-1){
+if(state.current<state.questions.length-1){
 
-current++;
-loadQuestion();
+state.current++
+
+renderQuestion()
 
 }
 
 }
-
 
 function prevQuestion(){
 
-if(current>0){
+if(state.current>0){
 
-current--;
-loadQuestion();
+state.current--
+
+renderQuestion()
 
 }
 
 }
-
 
 function saveAnswer(){
 
-let selected=document.querySelector('input[name="option"]:checked');
+const selected=document.querySelector(
+"input[name=ans]:checked"
+)
 
 if(selected){
 
-answers[current]=selected.value;
+state.answers[state.current]=selected.value
 
 }
 
 }
 
+function clearAnswer(){
 
-function clearResponse(){
+delete state.answers[state.current]
 
-let radios=document.getElementsByName("option");
-
-radios.forEach(r=>r.checked=false);
-
-delete answers[current];
+renderQuestion()
 
 }
 
+function buildPalette(){
 
-function markReview(){
+const palette=document.getElementById("palette-grid")
 
-review[current]=true;
+state.questions.forEach((q,i)=>{
 
-}
+const btn=document.createElement("button")
 
+btn.innerText=i+1
 
-function createPalette(){
+btn.onclick=()=>{
 
-let palette=document.getElementById("palette");
+state.current=i
 
-for(let i=0;i<questions.length;i++){
-
-let btn=document.createElement("button");
-
-btn.innerText=i+1;
-
-btn.onclick=function(){
-
-current=i;
-
-loadQuestion();
-
-};
-
-palette.appendChild(btn);
+renderQuestion()
 
 }
 
-}
+palette.appendChild(btn)
 
+})
+
+}
 
 function openCalculator(){
 
-window.open("calculator/calculator.html","calc","width=400,height=500");
+window.open(
+"components/calculator.html",
+"calc",
+"width=420,height=600"
+)
 
 }
 
+init()
