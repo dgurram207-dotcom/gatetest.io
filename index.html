@@ -4,29 +4,29 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>GATE CBT Platform</title>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/main.css">
 
 </head>
 
 <body>
 
-<header class="header">
+<header class="navbar">
 
-<div class="brand">
+<div class="nav-left">
 
-<h1>GATE CBT</h1>
+<div class="logo">GATE CBT</div>
 
 </div>
 
-<div class="exam-tools">
+<div class="nav-right">
 
-<div id="timer">03:00:00</div>
+<div class="timer" id="timer">03:00:00</div>
 
-<button class="tool-btn" onclick="openCalculator()">
+<button class="btn-secondary" onclick="openCalculator()">
 Calculator
 </button>
 
@@ -35,47 +35,25 @@ Calculator
 </header>
 
 
-<div class="container">
+<div class="exam-layout">
 
-<main class="question-panel">
+<section class="question-container">
 
-<div class="question-meta">
+<div class="question-header">
 
 <span id="question-number"></span>
 
 </div>
 
-<div class="question-content">
+<div class="question-box">
 
 <p id="question-text"></p>
 
-<form id="options">
-
-<label class="option">
-<input type="radio" name="answer" value="A">
-<span id="optA"></span>
-</label>
-
-<label class="option">
-<input type="radio" name="answer" value="B">
-<span id="optB"></span>
-</label>
-
-<label class="option">
-<input type="radio" name="answer" value="C">
-<span id="optC"></span>
-</label>
-
-<label class="option">
-<input type="radio" name="answer" value="D">
-<span id="optD"></span>
-</label>
-
-</form>
+<div class="options" id="options"></div>
 
 </div>
 
-<div class="controls">
+<div class="question-actions">
 
 <button onclick="prevQuestion()">Previous</button>
 
@@ -83,47 +61,28 @@ Calculator
 
 <button onclick="clearAnswer()">Clear</button>
 
-<button class="primary" onclick="nextQuestion()">
+<button class="btn-primary" onclick="nextQuestion()">
 Save & Next
 </button>
 
 </div>
 
-</main>
+</section>
 
 
-<aside class="palette-panel">
+<aside class="palette">
 
 <h3>Question Palette</h3>
 
-<div id="palette"></div>
+<div id="palette-grid"></div>
 
-<div class="legend">
-
-<div>
-<span class="box answered"></span>
-Answered
-</div>
-
-<div>
-<span class="box notanswered"></span>
-Not Answered
-</div>
-
-<div>
-<span class="box review"></span>
-Review
-</div>
-
-</div>
-
-<button class="submit">Submit Test</button>
+<button class="submit-btn">Submit Test</button>
 
 </aside>
 
 </div>
 
-<script src="app.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
