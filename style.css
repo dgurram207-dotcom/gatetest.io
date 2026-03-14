@@ -1,118 +1,149 @@
 body{
-
 margin:0;
-font-family:Arial;
-background:#f5f5f5;
-
+font-family:Segoe UI, Arial;
+background:#f4f6fb;
 }
 
-.top-bar{
-
-background:#1c3f94;
-color:white;
+.topbar{
 
 display:flex;
 justify-content:space-between;
 align-items:center;
 
-padding:12px 20px;
+background:#1b3c8c;
+color:white;
 
+padding:12px 30px;
 }
 
-.main-container{
+.logo{
+font-size:18px;
+font-weight:bold;
+}
+
+.exam-info{
+display:flex;
+gap:20px;
+align-items:center;
+}
+
+.calc-btn{
+background:white;
+border:none;
+padding:8px 14px;
+cursor:pointer;
+}
+
+.layout{
 
 display:flex;
-height:90vh;
-
+height:92vh;
 }
 
-.question-section{
+.question-area{
 
 flex:3;
+padding:30px;
 background:white;
-padding:25px;
-
 }
 
-.palette-section{
-
-flex:1;
-background:#eaeaea;
-padding:20px;
-
-}
-
-.options label{
-
-display:block;
-padding:10px;
-border:1px solid #ddd;
-margin-bottom:10px;
-cursor:pointer;
-
-}
-
-.question-buttons{
+.question-body{
 
 margin-top:20px;
-
 }
 
-.question-buttons button{
+.option{
 
-padding:10px 18px;
-margin-right:10px;
+display:block;
 
-}
+border:1px solid #ddd;
+padding:12px;
 
-#palette button{
-
-width:40px;
-height:40px;
-
-margin:4px;
-border:none;
-
-background:#ccc;
+margin-bottom:10px;
 
 cursor:pointer;
+
+}
+
+.actions{
+
+margin-top:20px;
+}
+
+.actions button{
+
+padding:10px 15px;
+margin-right:10px;
+}
+
+.next-btn{
+background:#1b3c8c;
+color:white;
+border:none;
+}
+
+.palette{
+
+flex:1;
+background:#eef0f5;
+padding:20px;
+}
+
+#palette-grid{
+
+display:grid;
+
+grid-template-columns:repeat(5,1fr);
+
+gap:8px;
+
+margin-top:10px;
+
+}
+
+#palette-grid button{
+
+height:38px;
+border:none;
+
+cursor:pointer;
+
+background:#ccc;
 
 }
 
 .answered{
-
-display:inline-block;
-width:15px;
-height:15px;
 background:green;
-
 }
 
 .notanswered{
-
-display:inline-block;
-width:15px;
-height:15px;
 background:red;
-
 }
 
 .review{
+background:purple;
+}
+
+.box{
 
 display:inline-block;
 width:15px;
 height:15px;
-background:purple;
+margin-right:5px;
 
 }
 
-.submit{
+.submit-btn{
 
 margin-top:20px;
-padding:10px;
+
 width:100%;
-background:#1c3f94;
+padding:12px;
+
+background:#1b3c8c;
 color:white;
 border:none;
+
+cursor:pointer;
 
 }
