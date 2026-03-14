@@ -1,33 +1,39 @@
-let questions=[]
-let current=0
+const state={
 
-let answers={}
-let review={}
+questions:[],
+current:0,
 
-fetch("questions.json")
-.then(r=>r.json())
-.then(data=>{
+answers:{},
+review:{}
 
-questions=data
+}
 
-loadQuestion()
+async function init(){
+
+const res=await fetch("questions.json")
+
+state.questions=await res.json()
+
+renderQuestion()
+
 buildPalette()
 
-})
+}
 
-function loadQuestion(){
+function renderQuestion(){
 
-let q=questions[current]
+const q=state.questions[state.current]
 
-document.getElementById("q-number").innerText=
-"Question "+(current+1)
+document.getElementById("question-number")
+.innerText=`Question ${state.current+1}`
 
-document.getElementById("question-text").innerText=q.question
+document.getElementById("question-text")
+.innerText=q.question
 
-document.getElementById("optA").innerText=q.A
-document.getElementById("optB").innerText=q.B
-document.getElementById("optC").innerText=q.C
-document.getElementById("optD").innerText=q.D
+optA.innerText=q.A
+optB.innerText=q.B
+optC.innerText=q.C
+optD.innerText=q.D
 
 restoreSelection()
 
@@ -35,18 +41,18 @@ restoreSelection()
 
 function restoreSelection(){
 
-let radios=document.querySelectorAll("input[name=option]")
+const radios=document.querySelectorAll(
+"input[name=answer]"
+)
 
-radios.forEach(r=>{
+radios.forEach(r=>r.checked=false)
 
-r.checked=false
+const saved=state.answers[state.current]
 
-})
-
-if(answers[current]){
+if(saved){
 
 document.querySelector(
-`input[value=${answers[current]}]`
+`input[value=${saved}]`
 ).checked=true
 
 }
@@ -55,13 +61,13 @@ document.querySelector(
 
 function saveAnswer(){
 
-let selected=document.querySelector(
-"input[name=option]:checked"
+const selected=document.querySelector(
+"input[name=answer]:checked"
 )
 
 if(selected){
 
-answers[current]=selected.value
+state.answers[state.current]=selected.value
 
 }
 
@@ -69,35 +75,35 @@ updatePalette()
 
 }
 
-function next(){
+function nextQuestion(){
 
 saveAnswer()
 
-if(current<questions.length-1){
+if(state.current<state.questions.length-1){
 
-current++
+state.current++
 
-loadQuestion()
-
-}
-
-}
-
-function previous(){
-
-if(current>0){
-
-current--
-
-loadQuestion()
+renderQuestion()
 
 }
 
 }
 
-function clearResponse(){
+function prevQuestion(){
 
-delete answers[current]
+if(state.current>0){
+
+state.current--
+
+renderQuestion()
+
+}
+
+}
+
+function clearAnswer(){
+
+delete state.answers[state.current]
 
 restoreSelection()
 
@@ -107,7 +113,7 @@ updatePalette()
 
 function markReview(){
 
-review[current]=true
+state.review[state.current]=true
 
 updatePalette()
 
@@ -115,19 +121,19 @@ updatePalette()
 
 function buildPalette(){
 
-let palette=document.getElementById("palette-grid")
+const palette=document.getElementById("palette")
 
-questions.forEach((q,i)=>{
+state.questions.forEach((q,i)=>{
 
-let btn=document.createElement("button")
+const btn=document.createElement("button")
 
 btn.innerText=i+1
 
 btn.onclick=()=>{
 
-current=i
+state.current=i
 
-loadQuestion()
+renderQuestion()
 
 }
 
@@ -139,19 +145,19 @@ palette.appendChild(btn)
 
 function updatePalette(){
 
-let buttons=document.querySelectorAll("#palette-grid button")
+const buttons=document.querySelectorAll("#palette button")
 
 buttons.forEach((btn,i)=>{
 
 btn.className=""
 
-if(review[i]){
+if(state.review[i]){
 
 btn.classList.add("review")
 
 }
 
-else if(answers[i]){
+else if(state.answers[i]){
 
 btn.classList.add("answered")
 
@@ -172,7 +178,9 @@ function openCalculator(){
 window.open(
 "calculator/calculator.html",
 "calc",
-"width=400,height=600"
+"width=420,height=600"
 )
 
 }
+
+init()
